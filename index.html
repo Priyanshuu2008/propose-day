@@ -23,15 +23,17 @@ body{
   color:white;
 }
 
-/* 🔥 Firefly lights */
+/* 🔥 glowing fireflies */
 .light{
   position:absolute;
   bottom:-10px;
-  width:4px;
-  height:4px;
+  width:5px;
+  height:5px;
   background:#ffd27d;
   border-radius:50%;
-  opacity:0.8;
+  opacity:0.9;
+  filter:blur(1px);
+  box-shadow:0 0 10px #ffd27d, 0 0 20px #ffd27d;
   animation:floatUp linear infinite;
 }
 
@@ -52,26 +54,59 @@ body{
   transition:opacity 0.8s;
 }
 
-/* hearts */
+/* hearts container */
 .hearts{
   display:flex;
-  gap:30px;
+  gap:40px;
 }
 
+/* realistic heart */
 .heart{
-  font-size:60px;
+  width:110px;
+  height:110px;
+  background:radial-gradient(circle at 30% 30%, #ff7a7a, #d1002c);
+  position:relative;
+  transform:rotate(-45deg);
   cursor:pointer;
+  box-shadow:0 0 25px rgba(255,0,70,0.8);
   transition:transform 0.3s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .heart:hover{
-  transform:scale(1.2);
+  transform:rotate(-45deg) scale(1.15);
 }
 
-.label{
-  margin-top:10px;
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:110px;
+  height:110px;
+  background:inherit;
+  border-radius:50%;
+}
+
+.heart::before{
+  top:-55px;
+  left:0;
+}
+
+.heart::after{
+  left:55px;
+  top:0;
+}
+
+/* text inside heart */
+.heart span{
+  transform:rotate(45deg);
+  color:white;
   font-size:14px;
-  color:#ffd27d;
+  text-align:center;
+  padding:10px;
+  pointer-events:none;
 }
 
 /* paper */
@@ -112,17 +147,16 @@ button{
 <!-- SCREEN 1 -->
 <div class="screen" id="s1">
   <div class="hearts">
-    <div onclick="firstHeart()">
-      <div class="heart">❤️</div>
-      <div class="label" id="t1">Click here</div>
+    <div class="heart" onclick="firstHeart()">
+      <span id="t1">Click here</span>
     </div>
-    <div onclick="secondHeart()">
-      <div class="heart">❤️</div>
-      <div class="label" id="t2">Click here</div>
+
+    <div class="heart" onclick="secondHeart()">
+      <span id="t2">Click here</span>
     </div>
-    <div onclick="thirdHeart()">
-      <div class="heart">❤️</div>
-      <div class="label" id="t3">Click here</div>
+
+    <div class="heart" onclick="thirdHeart()">
+      <span id="t3">Click here</span>
     </div>
   </div>
 </div>
@@ -153,7 +187,7 @@ button{
 
 <script>
 /* fireflies */
-for(let i=0;i<40;i++){
+for(let i=0;i<45;i++){
   let l=document.createElement("div");
   l.className="light";
   l.style.left=Math.random()*100+"vw";
