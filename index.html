@@ -56,12 +56,12 @@ body{
   gap:130px;
 }
 
-/* ❤️ CLEAN REAL HEART (NO CIRCLES GUARANTEED) */
+/* ❤️ PERFECT CLEAN HEART */
 .heart{
   width:100px;
   height:90px;
   background:linear-gradient(135deg,#ff5a7a,#c8002d);
-  clip-path: path("M50 85 C20 65 0 45 0 25 C0 5 20 0 35 10 C45 0 65 0 75 10 C90 0 110 5 110 25 C110 45 90 65 50 85 Z");
+  clip-path:path("M50 88 C20 65 0 45 0 25 C0 10 15 0 30 5 C42 8 50 20 50 20 C50 20 58 8 70 5 C85 0 100 10 100 25 C100 45 80 65 50 88 Z");
   cursor:pointer;
   box-shadow:0 0 25px rgba(255,0,70,.8);
   display:flex;
@@ -70,7 +70,7 @@ body{
 }
 
 .heart span{
-  color:black;              /* 🖤 text black */
+  color:black;
   font-size:14px;
   font-weight:600;
   text-align:center;
@@ -112,22 +112,14 @@ button{
 
 <body>
 
-<!-- SCREEN 1 -->
 <div class="screen" id="s1">
   <div class="hearts">
-    <div class="heart" onclick="firstHeart()">
-      <span id="t1">Click here</span>
-    </div>
-    <div class="heart" onclick="secondHeart()">
-      <span id="t2">Click here</span>
-    </div>
-    <div class="heart" onclick="thirdHeart()">
-      <span id="t3">Click here</span>
-    </div>
+    <div class="heart" onclick="firstHeart()"><span id="t1">Click here</span></div>
+    <div class="heart" onclick="secondHeart()"><span id="t2">Click here</span></div>
+    <div class="heart" onclick="thirdHeart()"><span id="t3">Click here</span></div>
   </div>
 </div>
 
-<!-- SCREEN 2 -->
 <div class="screen hidden" id="s2">
   <div class="paper">
     <h2>Welcome in my heart ❤️</h2>
@@ -136,7 +128,6 @@ button{
   </div>
 </div>
 
-<!-- SCREEN 3 -->
 <div class="screen hidden" id="s3">
   <div class="paper">
     <h3>One last thing 💌</h3>
@@ -144,7 +135,6 @@ button{
   </div>
 </div>
 
-<!-- SCREEN 4 : MODIFIED LETTER -->
 <div class="screen hidden" id="s4">
   <div class="paper">
     <h2>💖 Hey PLK 💖</h2>
@@ -161,7 +151,6 @@ button{
 </div>
 
 <script>
-/* fireflies */
 for(let i=0;i<45;i++){
   let l=document.createElement("div");
   l.className="light";
@@ -170,25 +159,11 @@ for(let i=0;i<45;i++){
   document.body.appendChild(l);
 }
 
-/* logic */
-function firstHeart(){
-  t1.innerText="Oppsss!! Wrong heart...";
-}
-function secondHeart(){
-  t2.innerText="Aapke liye 3rd dil mai kuch hai 🫣💋";
-}
-function thirdHeart(){
-  s1.classList.add("hidden");
-  s2.classList.remove("hidden");
-}
-function openLetter(){
-  s2.classList.add("hidden");
-  s3.classList.remove("hidden");
-}
-function finalLetter(){
-  s3.classList.add("hidden");
-  s4.classList.remove("hidden");
-}
+function firstHeart(){ t1.innerText="Oppsss!! Wrong heart..."; }
+function secondHeart(){ t2.innerText="Aapke liye 3rd dil mai kuch hai 🫣💋"; }
+function thirdHeart(){ s1.classList.add("hidden"); s2.classList.remove("hidden"); }
+function openLetter(){ s2.classList.add("hidden"); s3.classList.remove("hidden"); }
+function finalLetter(){ s3.classList.add("hidden"); s4.classList.remove("hidden"); }
 </script>
 
 </body>
