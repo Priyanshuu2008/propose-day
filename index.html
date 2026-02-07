@@ -50,18 +50,19 @@ body{
   display:flex;
 }
 
-/* hearts row */
+/* hearts vertical */
 .hearts{
   display:flex;
-  gap:80px;
+  flex-direction:column;
+  gap:35px;
 }
 
-/* PERFECT HEART */
+/* HEART */
 .heart{
-  width:130px;
-  height:120px;
+  width:140px;
+  height:125px;
   background:linear-gradient(135deg,#ff5a7a,#c8002d);
-  clip-path:path("M65 115 C25 85 0 60 0 35 C0 15 20 0 45 10 C58 18 65 35 65 35 C65 35 72 18 85 10 C110 0 130 15 130 35 C130 60 105 85 65 115 Z");
+  clip-path:path("M70 120 C28 90 0 65 0 38 C0 16 22 0 48 10 C60 18 70 36 70 36 C70 36 80 18 92 10 C118 0 140 16 140 38 C140 65 112 90 70 120 Z");
   box-shadow:0 0 25px rgba(255,0,70,.8);
   display:flex;
   justify-content:center;
@@ -81,7 +82,7 @@ body{
 .paper{
   background:#fff8e7;
   color:#333;
-  padding:28px;
+  padding:30px;
   border-radius:15px;
   width:85%;
   max-width:360px;
@@ -107,9 +108,15 @@ button{
 <!-- SCREEN 1 -->
 <div class="screen active" id="s1">
   <div class="hearts">
-    <div class="heart" onclick="firstHeart()"><span id="t1">Click here</span></div>
-    <div class="heart" onclick="secondHeart()"><span id="t2">Click here</span></div>
-    <div class="heart" onclick="thirdHeart()"><span id="t3">Click here</span></div>
+    <div class="heart" onclick="firstHeart()">
+      <span id="t1">Click here</span>
+    </div>
+    <div class="heart" onclick="secondHeart()">
+      <span id="t2">Click here</span>
+    </div>
+    <div class="heart" onclick="thirdHeart()">
+      <span id="t3">Click here</span>
+    </div>
   </div>
 </div>
 
@@ -135,8 +142,12 @@ button{
   <div class="paper">
     <h2>💖 Hey PLK 💖</h2>
     <p style="margin-top:12px; line-height:1.6;">
-      Every little thing feels warmer when you’re around.
-      Your smile, your presence — everything feels right.
+      I don’t know how to say this perfectly,  
+      but every little thing feels warmer when you’re around.  
+      Your smile, your presence, even your silence  
+      somehow makes my heart feel at home.
+      <br><br>
+      So today I just wanted to ask…
     </p>
     <h3 style="margin-top:15px;">Will you be my Valentine? 🌹</h3>
   </div>
@@ -159,10 +170,10 @@ function show(id){
 }
 
 function firstHeart(){
-  t1.innerText="Wrong heart 😜";
+  t1.innerText="Oppsss!! Wrong heart...";
 }
 function secondHeart(){
-  t2.innerText="Third one 💋";
+  t2.innerText="Aapke liye 3rd dil mai kuch hai 🫣💋";
 }
 function thirdHeart(){
   show('s2');
