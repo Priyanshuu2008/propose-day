@@ -68,13 +68,17 @@ body{
   justify-content:center;
   align-items:center;
   cursor:pointer;
+  padding:10px;
 }
 
+/* FIXED TEXT */
 .heart span{
   color:black;
-  font-size:15px;
+  font-size:13px;
   font-weight:600;
   text-align:center;
+  line-height:1.2;
+  word-wrap:break-word;
   pointer-events:none;
 }
 
@@ -90,8 +94,15 @@ body{
   box-shadow:0 0 30px rgba(255,210,125,.5);
 }
 
-button{
+/* buttons */
+.btns{
   margin-top:20px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+button{
   padding:10px 22px;
   border:none;
   border-radius:20px;
@@ -99,6 +110,11 @@ button{
   color:white;
   font-size:16px;
   cursor:pointer;
+}
+
+#noBtn{
+  background:#555;
+  position:relative;
 }
 </style>
 </head>
@@ -143,15 +159,30 @@ button{
     <h2>💖 Hey PLK 💖</h2>
     <p style="margin-top:12px; line-height:1.6;">
       I don’t know how to say this perfectly,  
-      but i feel so calm , happy and complete 
-      with you. I know this is the best i can get in my life,
-      so yeahh plk i wanna ask you will you be my valentine ?
-      For my whole life because i know you're perfect for me,
-      and i can love you same for my whole life . 
+      but every little thing feels warmer when you’re around.  
+      Your smile, your presence, even your silence  
+      somehow makes my heart feel at home.
       <br><br>
       So today I just wanted to ask…
     </p>
     <h3 style="margin-top:15px;">Will you be my Valentine? 🌹</h3>
+
+    <div class="btns">
+      <button onclick="yesClicked()">Yes ❤️</button>
+      <button id="noBtn">No 🙈</button>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 5 -->
+<div class="screen" id="s5">
+  <div class="paper">
+    <h2>🥹❤️ Thank You Baby ❤️🥹</h2>
+    <p style="margin-top:12px; line-height:1.6;">
+      thank you baby ❤️🥹 for joining this journey with me.  
+      I can't express this feeling in words but I'll make sure  
+      that my actions tells you that how much i love youuu ❤️🧿
+    </p>
   </div>
 </div>
 
@@ -186,6 +217,18 @@ function openLetter(){
 function finalLetter(){
   show('s4');
 }
+
+/* yes no logic */
+function yesClicked(){
+  show('s5');
+}
+
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseenter",()=>{
+  let x=Math.random()*200-100;
+  let y=Math.random()*200-100;
+  noBtn.style.transform=`translate(${x}px,${y}px)`;
+});
 </script>
 
 </body>
