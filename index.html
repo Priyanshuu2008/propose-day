@@ -20,10 +20,9 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  color:white;
 }
 
-/* 🔥 glowing fireflies */
+/* ✨ fireflies */
 .light{
   position:absolute;
   bottom:-10px;
@@ -31,9 +30,7 @@ body{
   height:5px;
   background:#ffd27d;
   border-radius:50%;
-  opacity:0.9;
-  filter:blur(1px);
-  box-shadow:0 0 10px #ffd27d, 0 0 20px #ffd27d;
+  box-shadow:0 0 10px #ffd27d,0 0 20px #ffd27d;
   animation:floatUp linear infinite;
 }
 
@@ -51,32 +48,26 @@ body{
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  transition:opacity 0.8s;
+  transition:opacity .8s;
 }
 
-/* hearts container (FIXED) */
 .hearts{
   display:flex;
-  gap:140px; /* 🔥 main fix */
+  gap:130px;
 }
 
-/* realistic heart (FIXED SIZE) */
+/* ❤️ REAL HEART (FIXED) */
 .heart{
   width:90px;
   height:90px;
-  background:radial-gradient(circle at 30% 30%, #ff9a9a, #d1002c);
   position:relative;
+  background:linear-gradient(135deg,#ff5a7a,#c8002d);
   transform:rotate(-45deg);
   cursor:pointer;
-  box-shadow:0 0 25px rgba(255,0,70,0.8);
-  transition:transform 0.3s;
+  box-shadow:0 0 25px rgba(255,0,70,.8);
   display:flex;
-  align-items:center;
   justify-content:center;
-}
-
-.heart:hover{
-  transform:rotate(-45deg) scale(1.15);
+  align-items:center;
 }
 
 .heart::before,
@@ -85,8 +76,9 @@ body{
   position:absolute;
   width:90px;
   height:90px;
-  background:inherit;
+  background:#ff3b5c;
   border-radius:50%;
+  z-index:-1;
 }
 
 .heart::before{
@@ -99,15 +91,12 @@ body{
   top:0;
 }
 
-/* text inside heart */
 .heart span{
   transform:rotate(45deg);
   color:white;
   font-size:14px;
   text-align:center;
-  padding:8px;
   pointer-events:none;
-  z-index:2;
 }
 
 /* paper */
@@ -119,7 +108,7 @@ body{
   width:85%;
   max-width:350px;
   text-align:center;
-  box-shadow:0 0 30px rgba(255,210,125,0.5);
+  box-shadow:0 0 30px rgba(255,210,125,.5);
   animation:fadeIn 1s;
 }
 
@@ -130,12 +119,12 @@ button{
   border-radius:20px;
   background:#ff4d6d;
   color:white;
-  cursor:pointer;
   font-size:16px;
+  cursor:pointer;
 }
 
 @keyframes fadeIn{
-  from{opacity:0;transform:scale(0.9);}
+  from{opacity:0;transform:scale(.9);}
   to{opacity:1;transform:scale(1);}
 }
 
@@ -151,11 +140,9 @@ button{
     <div class="heart" onclick="firstHeart()">
       <span id="t1">Click here</span>
     </div>
-
     <div class="heart" onclick="secondHeart()">
       <span id="t2">Click here</span>
     </div>
-
     <div class="heart" onclick="thirdHeart()">
       <span id="t3">Click here</span>
     </div>
@@ -196,24 +183,24 @@ for(let i=0;i<45;i++){
   document.body.appendChild(l);
 }
 
-/* hearts logic */
+/* logic */
 function firstHeart(){
-  document.getElementById("t1").innerText="Oppsss!! Wrong heart...";
+  t1.innerText="Oppsss!! Wrong heart...";
 }
 function secondHeart(){
-  document.getElementById("t2").innerText="Aapke liye 3rd dil mai kuch hai 🫣💋";
+  t2.innerText="Aapke liye 3rd dil mai kuch hai 🫣💋";
 }
 function thirdHeart(){
-  document.getElementById("s1").classList.add("hidden");
-  document.getElementById("s2").classList.remove("hidden");
+  s1.classList.add("hidden");
+  s2.classList.remove("hidden");
 }
 function openLetter(){
-  document.getElementById("s2").classList.add("hidden");
-  document.getElementById("s3").classList.remove("hidden");
+  s2.classList.add("hidden");
+  s3.classList.remove("hidden");
 }
 function finalLetter(){
-  document.getElementById("s3").classList.add("hidden");
-  document.getElementById("s4").classList.remove("hidden");
+  s3.classList.add("hidden");
+  s4.classList.remove("hidden");
 }
 </script>
 
