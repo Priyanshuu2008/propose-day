@@ -56,13 +56,12 @@ body{
   gap:130px;
 }
 
-/* ❤️ REAL HEART (FIXED) */
+/* ❤️ CLEAN REAL HEART (NO CIRCLES GUARANTEED) */
 .heart{
-  width:90px;
+  width:100px;
   height:90px;
-  position:relative;
   background:linear-gradient(135deg,#ff5a7a,#c8002d);
-  transform:rotate(-45deg);
+  clip-path: path("M50 85 C20 65 0 45 0 25 C0 5 20 0 35 10 C45 0 65 0 75 10 C90 0 110 5 110 25 C110 45 90 65 50 85 Z");
   cursor:pointer;
   box-shadow:0 0 25px rgba(255,0,70,.8);
   display:flex;
@@ -70,31 +69,10 @@ body{
   align-items:center;
 }
 
-.heart::before,
-.heart::after{
-  content:"";
-  position:absolute;
-  width:90px;
-  height:90px;
-  background:#ff3b5c;
-  border-radius:50%;
-  z-index:-1;
-}
-
-.heart::before{
-  top:-45px;
-  left:0;
-}
-
-.heart::after{
-  left:45px;
-  top:0;
-}
-
 .heart span{
-  transform:rotate(45deg);
-  color:white;
+  color:black;              /* 🖤 text black */
   font-size:14px;
+  font-weight:600;
   text-align:center;
   pointer-events:none;
 }
@@ -106,7 +84,7 @@ body{
   padding:30px;
   border-radius:15px;
   width:85%;
-  max-width:350px;
+  max-width:360px;
   text-align:center;
   box-shadow:0 0 30px rgba(255,210,125,.5);
   animation:fadeIn 1s;
@@ -114,7 +92,7 @@ body{
 
 button{
   margin-top:20px;
-  padding:10px 20px;
+  padding:10px 22px;
   border:none;
   border-radius:20px;
   background:#ff4d6d;
@@ -161,15 +139,24 @@ button{
 <!-- SCREEN 3 -->
 <div class="screen hidden" id="s3">
   <div class="paper">
-    <h3>Click here 👇</h3>
-    <button onclick="finalLetter()">Open Letter 💌</button>
+    <h3>One last thing 💌</h3>
+    <button onclick="finalLetter()">Open Letter</button>
   </div>
 </div>
 
-<!-- SCREEN 4 -->
+<!-- SCREEN 4 : MODIFIED LETTER -->
 <div class="screen hidden" id="s4">
   <div class="paper">
-    <h2>💖 Will you be my Valentine? 💖</h2>
+    <h2>💖 Hey PLK 💖</h2>
+    <p style="margin-top:12px; line-height:1.6;">
+      I don’t know how to say this perfectly,  
+      but every little thing feels warmer when you’re around.  
+      Your smile, your presence, even your silence  
+      somehow makes my heart feel at home.
+      <br><br>
+      So today I just wanted to ask…
+    </p>
+    <h3 style="margin-top:15px;">Will you be my Valentine? 🌹</h3>
   </div>
 </div>
 
