@@ -17,12 +17,9 @@ body{
   height:100vh;
   background:black;
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
 }
 
-/* ✨ fireflies */
+/* fireflies */
 .light{
   position:absolute;
   bottom:-10px;
@@ -41,37 +38,40 @@ body{
 
 /* screens */
 .screen{
-  position:absolute;
-  width:100%;
-  height:100%;
-  display:flex;
+  position:fixed;
+  inset:0;
+  display:none;
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  transition:opacity .8s;
 }
 
+.screen.active{
+  display:flex;
+}
+
+/* hearts row */
 .hearts{
   display:flex;
-  gap:130px;
+  gap:80px;
 }
 
-/* ❤️ PERFECT CLEAN HEART */
+/* PERFECT HEART */
 .heart{
-  width:100px;
-  height:90px;
+  width:130px;
+  height:120px;
   background:linear-gradient(135deg,#ff5a7a,#c8002d);
-  clip-path:path("M50 88 C20 65 0 45 0 25 C0 10 15 0 30 5 C42 8 50 20 50 20 C50 20 58 8 70 5 C85 0 100 10 100 25 C100 45 80 65 50 88 Z");
-  cursor:pointer;
+  clip-path:path("M65 115 C25 85 0 60 0 35 C0 15 20 0 45 10 C58 18 65 35 65 35 C65 35 72 18 85 10 C110 0 130 15 130 35 C130 60 105 85 65 115 Z");
   box-shadow:0 0 25px rgba(255,0,70,.8);
   display:flex;
   justify-content:center;
   align-items:center;
+  cursor:pointer;
 }
 
 .heart span{
   color:black;
-  font-size:14px;
+  font-size:15px;
   font-weight:600;
   text-align:center;
   pointer-events:none;
@@ -81,13 +81,12 @@ body{
 .paper{
   background:#fff8e7;
   color:#333;
-  padding:30px;
+  padding:28px;
   border-radius:15px;
   width:85%;
   max-width:360px;
   text-align:center;
   box-shadow:0 0 30px rgba(255,210,125,.5);
-  animation:fadeIn 1s;
 }
 
 button{
@@ -100,19 +99,13 @@ button{
   font-size:16px;
   cursor:pointer;
 }
-
-@keyframes fadeIn{
-  from{opacity:0;transform:scale(.9);}
-  to{opacity:1;transform:scale(1);}
-}
-
-.hidden{opacity:0;pointer-events:none;}
 </style>
 </head>
 
 <body>
 
-<div class="screen" id="s1">
+<!-- SCREEN 1 -->
+<div class="screen active" id="s1">
   <div class="hearts">
     <div class="heart" onclick="firstHeart()"><span id="t1">Click here</span></div>
     <div class="heart" onclick="secondHeart()"><span id="t2">Click here</span></div>
@@ -120,7 +113,8 @@ button{
   </div>
 </div>
 
-<div class="screen hidden" id="s2">
+<!-- SCREEN 2 -->
+<div class="screen" id="s2">
   <div class="paper">
     <h2>Welcome in my heart ❤️</h2>
     <p style="margin-top:10px;">Dear PLK</p>
@@ -128,30 +122,29 @@ button{
   </div>
 </div>
 
-<div class="screen hidden" id="s3">
+<!-- SCREEN 3 -->
+<div class="screen" id="s3">
   <div class="paper">
     <h3>One last thing 💌</h3>
     <button onclick="finalLetter()">Open Letter</button>
   </div>
 </div>
 
-<div class="screen hidden" id="s4">
+<!-- SCREEN 4 -->
+<div class="screen" id="s4">
   <div class="paper">
     <h2>💖 Hey PLK 💖</h2>
     <p style="margin-top:12px; line-height:1.6;">
-      I don’t know how to say this perfectly,  
-      but every little thing feels warmer when you’re around.  
-      Your smile, your presence, even your silence  
-      somehow makes my heart feel at home.
-      <br><br>
-      So today I just wanted to ask…
+      Every little thing feels warmer when you’re around.
+      Your smile, your presence — everything feels right.
     </p>
     <h3 style="margin-top:15px;">Will you be my Valentine? 🌹</h3>
   </div>
 </div>
 
 <script>
-for(let i=0;i<45;i++){
+/* fireflies */
+for(let i=0;i<40;i++){
   let l=document.createElement("div");
   l.className="light";
   l.style.left=Math.random()*100+"vw";
@@ -159,11 +152,27 @@ for(let i=0;i<45;i++){
   document.body.appendChild(l);
 }
 
-function firstHeart(){ t1.innerText="Oppsss!! Wrong heart..."; }
-function secondHeart(){ t2.innerText="Aapke liye 3rd dil mai kuch hai 🫣💋"; }
-function thirdHeart(){ s1.classList.add("hidden"); s2.classList.remove("hidden"); }
-function openLetter(){ s2.classList.add("hidden"); s3.classList.remove("hidden"); }
-function finalLetter(){ s3.classList.add("hidden"); s4.classList.remove("hidden"); }
+/* screen switch */
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function firstHeart(){
+  t1.innerText="Wrong heart 😜";
+}
+function secondHeart(){
+  t2.innerText="Third one 💋";
+}
+function thirdHeart(){
+  show('s2');
+}
+function openLetter(){
+  show('s3');
+}
+function finalLetter(){
+  show('s4');
+}
 </script>
 
 </body>
