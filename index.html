@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For PLK ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  height:100vh;
+  background:black;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* 🔥 Firefly lights */
+.light{
+  position:absolute;
+  bottom:-10px;
+  width:4px;
+  height:4px;
+  background:#ffd27d;
+  border-radius:50%;
+  opacity:0.8;
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* screens */
+.screen{
+  position:absolute;
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  transition:opacity 0.8s;
+}
+
+/* hearts */
+.hearts{
+  display:flex;
+  gap:30px;
+}
+
+.heart{
+  font-size:60px;
+  cursor:pointer;
+  transition:transform 0.3s;
+}
+
+.heart:hover{
+  transform:scale(1.2);
+}
+
+.label{
+  margin-top:10px;
+  font-size:14px;
+  color:#ffd27d;
+}
+
+/* paper */
+.paper{
+  background:#fff8e7;
+  color:#333;
+  padding:30px;
+  border-radius:15px;
+  width:85%;
+  max-width:350px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(255,210,125,0.5);
+  animation:fadeIn 1s;
+}
+
+button{
+  margin-top:20px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+  font-size:16px;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
+}
+
+.hidden{opacity:0;pointer-events:none;}
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div class="screen" id="s1">
+  <div class="hearts">
+    <div onclick="firstHeart()">
+      <div class="heart">❤️</div>
+      <div class="label" id="t1">Click here</div>
+    </div>
+    <div onclick="secondHeart()">
+      <div class="heart">❤️</div>
+      <div class="label" id="t2">Click here</div>
+    </div>
+    <div onclick="thirdHeart()">
+      <div class="heart">❤️</div>
+      <div class="label" id="t3">Click here</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen hidden" id="s2">
+  <div class="paper">
+    <h2>Welcome in my heart ❤️</h2>
+    <p style="margin-top:10px;">Dear PLK</p>
+    <button onclick="openLetter()">Click here</button>
+  </div>
+</div>
+
+<!-- SCREEN 3 -->
+<div class="screen hidden" id="s3">
+  <div class="paper">
+    <h3>Click here 👇</h3>
+    <button onclick="finalLetter()">Open Letter 💌</button>
+  </div>
+</div>
+
+<!-- SCREEN 4 -->
+<div class="screen hidden" id="s4">
+  <div class="paper">
+    <h2>💖 Will you be my Valentine? 💖</h2>
+  </div>
+</div>
+
+<script>
+/* fireflies */
+for(let i=0;i<40;i++){
+  let l=document.createElement("div");
+  l.className="light";
+  l.style.left=Math.random()*100+"vw";
+  l.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(l);
+}
+
+/* hearts logic */
+function firstHeart(){
+  document.getElementById("t1").innerText="Oppsss!! Wrong heart...";
+}
+function secondHeart(){
+  document.getElementById("t2").innerText="Aapke liye 3rd dil mai kuch hai 🫣💋";
+}
+function thirdHeart(){
+  document.getElementById("s1").classList.add("hidden");
+  document.getElementById("s2").classList.remove("hidden");
+}
+function openLetter(){
+  document.getElementById("s2").classList.add("hidden");
+  document.getElementById("s3").classList.remove("hidden");
+}
+function finalLetter(){
+  document.getElementById("s3").classList.add("hidden");
+  document.getElementById("s4").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
